@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UsefulPoolObject.Core.Scripts
+namespace UsefulPoolSystem.Core.Scripts
 {
     public abstract class UsefulObject : MonoBehaviour
     {

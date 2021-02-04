@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UsefulPoolObject.Core.Scripts;
+using UsefulPoolSystem.Core.Scripts;
 using Random = UnityEngine.Random;
 
-namespace UsefulPoolObject.Example.Visual_Items.Scripts
+namespace UsefulPoolSystem.Example.Visual_Items.Scripts
 {
     public class CreatingVisualItems : MonoBehaviour
     {

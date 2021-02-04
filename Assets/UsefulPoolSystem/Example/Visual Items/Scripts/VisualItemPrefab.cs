@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UsefulPoolObject.Core.Scripts;
+using UsefulPoolSystem.Core.Scripts;
 
-namespace UsefulPoolObject.Example.Visual_Items.Scripts
+namespace UsefulPoolSystem.Example.Visual_Items.Scripts
 {
     public class VisualItemPrefab : UsefulObject
     {

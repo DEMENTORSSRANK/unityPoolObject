@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using UsefulPoolObject.Core.Scripts;
+using UsefulPoolSystem.Core.Scripts;
 
-namespace UsefulPoolObject.Example.Physic_Objects.Scripts
+namespace UsefulPoolSystem.Example.Physic_Objects.Scripts
 {
     public class CreatingPhysicItems : MonoBehaviour
     {

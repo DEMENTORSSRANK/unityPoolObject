@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
-using UsefulPoolObject.Core.Scripts;
+using UsefulPoolSystem.Core.Scripts;
 using Random = UnityEngine.Random;
 
-namespace UsefulPoolObject.Example.Physic_Objects.Scripts
+namespace UsefulPoolSystem.Example.Physic_Objects.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
     public class PhysicPrefab : UsefulObject

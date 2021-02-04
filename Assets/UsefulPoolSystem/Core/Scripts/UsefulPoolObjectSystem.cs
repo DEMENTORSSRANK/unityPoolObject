@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace UsefulPoolObject.Core.Scripts
+namespace UsefulPoolSystem.Core.Scripts
 {
     public class UsefulPoolObjectSystem : MonoBehaviour
     {
