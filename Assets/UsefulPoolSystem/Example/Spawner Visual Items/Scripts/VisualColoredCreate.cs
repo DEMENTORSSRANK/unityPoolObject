@@ -5,16 +5,16 @@ namespace UsefulPoolSystem.Example.Spawner_Visual_Items.Scripts
 {
     public class VisualColoredCreate : MonoBehaviour
     {
-        [SerializeField] private UsefulSpawner<VisualItemColored> spawner;
+        [SerializeField] private UsefulSpawner<VisualItemColored> _spawner;
 
-        [SerializeField] private Color[] colors;
+        [SerializeField] private Color[] _colors;
 
-        private Color RandomColor => colors[Random.Range(0, colors.Length)];
+        private Color RandomColor => _colors[Random.Range(0, _colors.Length)];
 
         [ContextMenu("Create")]
         private void CreateNew()
         {
-            var newItem = spawner.SpawnNewItem();
+            var newItem = _spawner.SpawnNewItem();
 
             newItem.Color = RandomColor;
         }
@@ -22,16 +22,16 @@ namespace UsefulPoolSystem.Example.Spawner_Visual_Items.Scripts
         [ContextMenu("Clear")]
         private void ClearAll()
         {
-            spawner.ClearAll();
+            _spawner.ClearAll();
         }
 
         [ContextMenu("Remove random")]
         private void RemoveRandom()
         {
-            if (!spawner.TryGetRandomItem(out var item))
+            if (!_spawner.TryGetRandomItem(out var item))
                 return;
             
-            spawner.DeSpawnItem(item);
+            _spawner.DeSpawnItem(item);
         }
 
     }

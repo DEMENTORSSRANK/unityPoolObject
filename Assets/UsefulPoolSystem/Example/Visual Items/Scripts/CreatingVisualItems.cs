@@ -6,9 +6,9 @@ namespace UsefulPoolSystem.Example.Visual_Items.Scripts
 {
     public class CreatingVisualItems : MonoBehaviour
     {
-        [SerializeField] private Color[] colors;
+        [SerializeField] private Color[] _colors;
 
-        private Color RandomColor => colors[Random.Range(0, colors.Length)];
+        private Color RandomColor => _colors[Random.Range(0, _colors.Length)];
 
         private UsefulPoolObjectSystem _poolSystem;
         

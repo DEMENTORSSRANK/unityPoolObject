@@ -8,7 +8,7 @@ namespace UsefulPoolSystem.Example.Physic_Objects.Scripts
     [RequireComponent(typeof(Rigidbody))]
     public class PhysicPrefab : UsefulObject
     {
-        [SerializeField] private float forceGive = 30;
+        [SerializeField] private float _forceGive = 30;
         
         private Rigidbody _rigidBody;
         
@@ -25,7 +25,7 @@ namespace UsefulPoolSystem.Example.Physic_Objects.Scripts
 
         public override void OnSpawned()
         {
-            RandomAddForceUp(forceGive);
+            RandomAddForceUp(_forceGive);
         }
 
         public override void OnDeSpawned()

@@ -7,20 +7,20 @@ namespace UsefulPoolSystem.Core.Scripts
 {
     public class UsefulPoolObjectSystem : MonoBehaviour
     {
-        [SerializeField] private UsefulPool[] pools;
+        [SerializeField] private UsefulPool[] _pools;
         
         public static UsefulPoolObjectSystem I { get; private set; }
 
         public T Spawn<T>() where T : UsefulObject
         {
-            if (pools.All(x => !x.PrefabPooled.GetComponent<T>()))
+            if (_pools.All(x => !x.PrefabPooled.GetComponent<T>()))
             {
                 Debug.LogWarning($"Wrong {nameof(T)} to spawn (no prefab in queue for spawn");
                 
                 return null;
             }
 
-            var foundedPool = pools.First(x => x.PrefabPooled.GetComponent<T>());
+            var foundedPool = _pools.First(x => x.PrefabPooled.GetComponent<T>());
 
             var spawned = foundedPool.SpawnNewObject();
             
@@ -40,7 +40,7 @@ namespace UsefulPoolSystem.Core.Scripts
         
         private void CreateStartQueues()
         {
-            pools.ToList().ForEach(x => x.InitQueue());
+            _pools.ToList().ForEach(x => x.InitQueue());
         }
 
         private void Awake()
@@ -53,15 +53,15 @@ namespace UsefulPoolSystem.Core.Scripts
         [Serializable]
         private class UsefulPool
         {
-            [SerializeField] private UsefulObject prefabPooled;
+            [SerializeField] private UsefulObject _prefabPooled;
 
-            [SerializeField] private Transform parent;
+            [SerializeField] private Transform _parent;
 
-            [SerializeField] private int maxCount = 16;
+            [SerializeField] private int _maxCount = 16;
 
             private Queue<UsefulObject> _queue;
 
-            public UsefulObject PrefabPooled => prefabPooled;
+            public UsefulObject PrefabPooled => _prefabPooled;
 
             public UsefulObject SpawnNewObject()
             {
@@ -79,7 +79,7 @@ namespace UsefulPoolSystem.Core.Scripts
             {
                 _queue = new Queue<UsefulObject>();
 
-                for (var i = 0; i < maxCount; i++)
+                for (var i = 0; i < _maxCount; i++)
                 {
                     AddElementToQueue();
                 }
@@ -87,7 +87,7 @@ namespace UsefulPoolSystem.Core.Scripts
 
             private void AddElementToQueue()
             {
-                var createdElement = Instantiate(prefabPooled, parent);
+                var createdElement = Instantiate(_prefabPooled, _parent);
                 
                 createdElement.gameObject.SetActive(false);
                 
