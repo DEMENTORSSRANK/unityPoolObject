@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc0d1a3f18549fb9322858e4da20940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 0, y: 0, z: 0}
+  _startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1272751816
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,10 +420,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a2621afe4acc2469f7a9f5bb926dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - prefabPooled: {fileID: -3970355464306245297, guid: 1d9cdbe9369968a479353feaa30deb6c, type: 3}
-    parent: {fileID: 701732501}
-    maxCount: 5
+  _pools:
+  - _prefabPooled: {fileID: -3970355464306245297, guid: 1d9cdbe9369968a479353feaa30deb6c, type: 3}
+    _parent: {fileID: 701732501}
+    _maxCount: 12
+  - _prefabPooled: {fileID: 5134388214970075788, guid: 4dd0dbfe7dd6345429ed61bd392f5657, type: 3}
+    _parent: {fileID: 1313692810}
+    _maxCount: 11
 --- !u!1 &1925648916
 GameObject:
   m_ObjectHideFlags: 0

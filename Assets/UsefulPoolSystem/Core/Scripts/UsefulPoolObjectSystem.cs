@@ -13,14 +13,14 @@ namespace UsefulPoolSystem.Core.Scripts
 
         public T Spawn<T>() where T : UsefulObject
         {
-            if (_pools.All(x => !x.PrefabPooled.GetComponent<T>()))
+            var toSpawnTypeName = typeof(T).Name;
+
+            if (_pools.All(x => x.TypeName != toSpawnTypeName))
             {
-                Debug.LogWarning($"Wrong {nameof(T)} to spawn (no prefab in queue for spawn");
-                
-                return null;
+                throw new Exception($"Wrong {nameof(T)} to spawn (no prefab in queue for spawn");
             }
 
-            var foundedPool = _pools.First(x => x.PrefabPooled.GetComponent<T>());
+            var foundedPool = _pools.First(x => x.TypeName == toSpawnTypeName);
 
             var spawned = foundedPool.SpawnNewObject();
             
@@ -62,6 +62,8 @@ namespace UsefulPoolSystem.Core.Scripts
             private Queue<UsefulObject> _queue;
 
             public UsefulObject PrefabPooled => _prefabPooled;
+            
+            public string TypeName { get; private set; }
 
             public UsefulObject SpawnNewObject()
             {
@@ -77,6 +79,10 @@ namespace UsefulPoolSystem.Core.Scripts
 
             public void InitQueue()
             {
+                var typeHave = _prefabPooled.GetType();
+                
+                TypeName = typeHave.Name;
+
                 _queue = new Queue<UsefulObject>();
 
                 for (var i = 0; i < _maxCount; i++)
